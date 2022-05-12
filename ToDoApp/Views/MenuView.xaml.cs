@@ -16,14 +16,19 @@ using System.Windows.Shapes;
 namespace ToDoApp
 {
     /// <summary>
-    /// Interaction logic for DoneTasksView.xaml
+    /// Interaction logic for MenuView.xaml
     /// </summary>
-    public partial class DoneTasksView : Page
+    public partial class MenuView : Page
     {
-        public DoneTasksView()
+        public MenuView()
         {
             InitializeComponent();
-            DataContext = new DoneTasksViewModel();
+        }
+
+        private void Grid_Click(object sender, RoutedEventArgs e)
+        {
+            var ClickedButton = e.OriginalSource as NavButton;
+            NavigationService.Navigate(ClickedButton.NavUri);
         }
     }
 }

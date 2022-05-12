@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToDoApp.ViewsModels.Views
+namespace ToDoApp
 {
-    internal class TasksToDoViewModel
+    public class TasksToDoViewModel
     {
     }
 }

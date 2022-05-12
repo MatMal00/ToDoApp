@@ -10,18 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ToDoApp.Views
+namespace ToDoApp
 {
     /// <summary>
-    /// Interaction logic for TasksToDoView.xaml
+    /// Interaction logic for DoneTasksView.xaml
     /// </summary>
-    public partial class TasksToDoView : Window
+    public partial class TasksToDoView : Page
     {
         public TasksToDoView()
         {
             InitializeComponent();
+            DataContext = new TasksToDoViewModel();
         }
     }
 }
