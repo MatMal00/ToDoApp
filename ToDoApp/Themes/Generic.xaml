@@ -19,11 +19,6 @@
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="StrokeThickness" TargetName="Line"  Value="1"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
         </Setter>
     </Style>
 </ResourceDictionary>
