@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoApp
 {
-    public class TasksToDoViewModel
+    public class TasksToDoViewModel : BaseViewModel
     {
     }
 }

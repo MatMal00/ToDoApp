@@ -25,10 +25,12 @@ namespace ToDoApp
             InitializeComponent();
         }
 
-        private void Grid_Click(object sender, RoutedEventArgs e)
+        private void Handle_Page_Change(object sender, RoutedEventArgs e)
         {
             var ClickedButton = e.OriginalSource as NavButton;
-            NavigationService.Navigate(ClickedButton.NavUri);
+            
+            if(ClickedButton != null)   
+                NavigationService.Navigate(ClickedButton.NavUri);
         }
     }
 }
