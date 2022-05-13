@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DeletedTasksViewModel">
     <Grid Background="#FF333333">
-        <Button Content="Back" Padding="3" Command="NavigationCommands.BrowseBack" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0"/>
+        <local:BackButton/>
         <Label Content="Deleted" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>
