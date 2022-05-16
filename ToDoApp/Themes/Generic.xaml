@@ -15,8 +15,11 @@
                     <Border Background="GhostWhite" CornerRadius="10" Padding="20 10" BorderBrush="Black" BorderThickness="1">
                         <TextBlock Grid.Row="1" Text="{TemplateBinding Text}" TextAlignment="Center" TextWrapping="Wrap" Margin="2"/>
                     </Border>
+                    <ControlTemplate.Triggers>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
+
         </Setter>
     </Style>
 </ResourceDictionary>
