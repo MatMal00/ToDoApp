@@ -16,7 +16,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <local:BackButton Grid.Row="0"/>
-        <Label HorizontalAlignment="Center" Content="TO DO TASKS" Grid.Row="1" Foreground="White" FontFamily="Yu Gothic UI Semibold" FontSize="36"/>
+        <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="TO DO TASKS" Grid.Row="1" Foreground="White" FontFamily="Arial Blac" FontSize="36"/>
         <ScrollViewer Grid.Row="2">
             <local:ToDoTask />
         </ScrollViewer>
