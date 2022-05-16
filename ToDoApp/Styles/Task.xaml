@@ -16,9 +16,10 @@
     </Style>
 
     <Style TargetType="{x:Type Grid}" x:Key="GridTaskContainerStyle">
-        <Setter Property="MaxWidth" Value="700"/>
+        <Setter Property="MaxWidth" Value="730"/>
         <Setter Property="MaxHeight" Value="50"/>
         <Setter Property="Background" Value="#FF3E3E3E"/>
+        <Setter Property="Margin" Value="0 10"/>
     </Style>
 
     <Style TargetType="{x:Type Button}" x:Key="DefaultTaskButtonStyle">

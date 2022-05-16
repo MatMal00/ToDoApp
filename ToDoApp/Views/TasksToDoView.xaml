@@ -18,8 +18,14 @@
         <local:BackButton Grid.Row="0"/>
         <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="TO DO TASKS" Grid.Row="1" Foreground="White" FontFamily="Arial Blac" FontSize="36"/>
         <ScrollViewer Grid.Row="2">
-            <local:ToDoTask />
+            <ItemsControl ItemsSource="{Binding ToDoTasksList}" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:ToDoTask />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </ScrollViewer>
-        <Button Grid.Row="3">ADD NEW TASK</Button>
+        <Button Command="{Binding AddNewTaskCommand}" Grid.Row="3">ADD NEW TASK</Button>
     </Grid>
 </Page>
