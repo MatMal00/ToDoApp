@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ToDoApp.Controls
+namespace ToDoApp
 {
     /// <summary>
     /// Interaction logic for ToDoTask.xaml

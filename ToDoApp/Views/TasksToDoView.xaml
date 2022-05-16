@@ -9,7 +9,17 @@
       Title="DoneTasksView">
 
     <Grid Background="#FF333333">
-        <local:BackButton/>
-        <Label Content="Tasks ToDo" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <local:BackButton Grid.Row="0"/>
+        <Label HorizontalAlignment="Center" Content="TO DO TASKS" Grid.Row="1" Foreground="White" FontFamily="Yu Gothic UI Semibold" FontSize="36"/>
+        <ScrollViewer Grid.Row="2">
+            <local:ToDoTask />
+        </ScrollViewer>
+        <Button Grid.Row="3">ADD NEW TASK</Button>
     </Grid>
 </Page>

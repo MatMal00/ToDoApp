@@ -1,4 +1,28 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="{x:Type TextBlock}" x:Key="DefaultTaskTextBlockStyle">
+        <Setter Property="Foreground" Value="#FFF"/>
+        <Setter Property="FontFamily" Value="Bahnschrift SemiBold SemiCondensed"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="15 8"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+    </Style>
     
+    <Style TargetType="{x:Type Border}" x:Key="DefaultTaskBorderStyle">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="CornerRadius" Value="5" />
+    </Style>
+
+    <Style TargetType="{x:Type Grid}" x:Key="GridTaskContainerStyle">
+        <Setter Property="MaxWidth" Value="700"/>
+        <Setter Property="MaxHeight" Value="50"/>
+        <Setter Property="Background" Value="#FF3E3E3E"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="DefaultTaskButtonStyle">
+        <Setter Property="FontFamily" Value="Arial Black"/>
+        <Setter Property="Cursor" Value="Hand"/>
+    </Style>
 </ResourceDictionary>
