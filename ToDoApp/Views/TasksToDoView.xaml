@@ -9,7 +9,23 @@
       Title="DoneTasksView">
 
     <Grid Background="#FF333333">
-        <local:BackButton/>
-        <Label Content="Tasks ToDo" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <local:BackButton Grid.Row="0"/>
+        <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="TO DO TASKS" Grid.Row="1" Foreground="White" FontFamily="Arial Blac" FontSize="36"/>
+        <ScrollViewer Grid.Row="2">
+            <ItemsControl ItemsSource="{Binding ToDoTasksList}" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:ToDoTask />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <Button Command="{Binding AddNewTaskCommand}" Grid.Row="3">ADD NEW TASK</Button>
     </Grid>
 </Page>

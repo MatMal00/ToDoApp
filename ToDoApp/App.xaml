@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:ToDoApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="Styles/Task.xaml"/>
     </Application.Resources>
 </Application>

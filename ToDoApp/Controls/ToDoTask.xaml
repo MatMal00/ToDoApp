@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="ToDoApp.ToDoTask"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ToDoApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Style="{StaticResource GridTaskContainerStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <Border Style="{StaticResource DefaultTaskBorderStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="1" BorderThickness="1,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>
+                <Border Grid.Column="2" BorderThickness="1,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>
+                <TextBlock Grid.Column="0" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Description}"/>
+                <TextBlock Grid.Column="1" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding CreationDate}"/>
+                <TextBlock Grid.Column="2" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding CategoryType}"/>
+                <Button Grid.Column="3" Style="{StaticResource DefaultTaskButtonStyle}" Background="#FF64CA37">DONE</Button>
+                <Button Grid.Column="4" Style="{StaticResource DefaultTaskButtonStyle}" Background="#FFD2E245">EDIT</Button>
+                <Button Grid.Column="5" Style="{StaticResource DefaultTaskButtonStyle}" Background="#FFE4563F">DELETE</Button>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
