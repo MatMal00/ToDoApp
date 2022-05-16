@@ -28,11 +28,11 @@ namespace ToDoApp
         {
             var newTask = new ToDoTaskViewModel()
             {
-                Description = "dsdssd",
+                Description = NewWorkTaskDescription,
                 CreationDate = DateTime.Now,
-                CategoryType = CatoegoryTypes.Shopping,
+                CategoryType = "Shopping",
             };
-            
+
             ToDoTasksList.Add(newTask);
 
             NewWorkTaskDescription = String.Empty;
