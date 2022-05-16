@@ -32,7 +32,7 @@ namespace ToDoApp
                 CreationDate = DateTime.Now,
                 CategoryType = CatoegoryTypes.Shopping,
             };
-            MessageBox.Show("Hello, world!");
+            
             ToDoTasksList.Add(newTask);
 
             NewWorkTaskDescription = String.Empty;
