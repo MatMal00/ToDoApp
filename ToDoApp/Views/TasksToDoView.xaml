@@ -26,6 +26,13 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        <Button Command="{Binding AddNewTaskCommand}" Grid.Row="3">ADD NEW TASK</Button>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Button Cursor="Hand" FontWeight="Bold" Grid.Column="0" Command="{Binding AddNewTaskCommand}" >ADD NEW TASK</Button>
+            <TextBox Text="{Binding NewWorkTaskDescription, Mode=TwoWay}" Grid.Column="1" Padding="0 12 0 0" FontSize="22" FontFamily="Bahnschrift SemiBold" />
+        </Grid>
     </Grid>
 </Page>
