@@ -13,5 +13,12 @@ namespace ToDoApp
         public DateTime CreationDate { get; set; }
 
         public string CategoryType { get; set; } = CatoegoryTypes.Work;
+
+        public Guid TaskId { get; private set; }    
+
+        public BaseTask()
+        {
+            this.TaskId = Guid.NewGuid();   
+        }
     }
 }

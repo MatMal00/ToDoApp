@@ -34,9 +34,8 @@ namespace ToDoApp
             };
 
             ToDoTasksList.Add(newTask);
-
+            MessageBox.Show("dsds");
             NewWorkTaskDescription = String.Empty;
-
         }
 
     }
