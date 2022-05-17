@@ -28,7 +28,7 @@
                 <TextBlock Grid.Column="0" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Description}"/>
                 <TextBlock Grid.Column="1" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding CreationDate}"/>
                 <TextBlock Grid.Column="2" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding CategoryType}"/>
-                <Button Grid.Column="3" Style="{StaticResource DefaultTaskButtonStyle}" Background="#FF64CA37">DONE</Button>
+                <Button Command="{Binding MarkAsDoneTaskCommand}" Grid.Column="3" Style="{StaticResource DefaultTaskButtonStyle}" Background="#FF64CA37">DONE</Button>
                 <Button Grid.Column="4" Style="{StaticResource DefaultTaskButtonStyle}" Background="#FFE4563F">DELETE</Button>
             </Grid>
         </Border>
