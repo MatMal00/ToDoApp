@@ -11,13 +11,16 @@ namespace ToDoApp
 {
     public class TasksToDoViewModel : BaseViewModel
     {
-        public ObservableCollection<ToDoTaskViewModel> ToDoTasksList { get; set; } = new ObservableCollection<ToDoTaskViewModel>();
+        static readonly string connectionString = @"Data Source=DESKTOP-SO4MQ1P;Initial Catalog=todoApp;Integrated Security=True";
+
+        public ObservableCollection<ToDoTaskModel> ToDoTasksList { get; set; } = new ObservableCollection<ToDoTaskModel>();
 
         public ICommand AddNewTaskCommand { get; set; }
 
         public TasksToDoViewModel()
         {
             AddNewTaskCommand = new RelayCommand(AddNewTask);
+            GetTasks().Wait();
         }
 
         private void AddNewTask()
@@ -25,16 +28,32 @@ namespace ToDoApp
             AddTaskModalView addTaskModal = new AddTaskModalView();
             addTaskModal.ShowDialog();
 
-            var newTask = new ToDoTaskViewModel()
+            var newTask = new ToDoTaskModel()
             {
                 Title = addTaskModal.taskTitle,
                 Description = addTaskModal.taskDescription,
-                CategoryType = addTaskModal.taskCategory,
+                CategoryId = 1,
                 CreationDate = DateTime.Now,
              };
 
+            using (ToDoAppContext db = new ToDoAppContext(connectionString))
+            {
+                db.ToDo.Add(newTask);
+                db.SaveChanges();
+            }
+
             ToDoTasksList.Add(newTask);
         }
+        public async Task GetTasks()
+        {
+            using (ToDoAppContext db = new ToDoAppContext(connectionString))
+            {
+                var ToDoTasks = db.ToDo.ToList<ToDoTaskModel>();
+                ToDoTasksList.ToList().AddRange(ToDoTasks);
+               
+            }
+        }
+
 
     }
 }

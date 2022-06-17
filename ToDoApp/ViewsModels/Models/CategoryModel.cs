@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
 
 namespace ToDoApp
 {
-    public class ToDoTaskViewModel: BaseTask
+    internal class CategoryModel: BaseViewModel
     {
-        public ToDoTaskViewModel()
-        {
-        }
+        public int Id { get; set; }
+
+        public string Name { get; set; }
     }
 }
