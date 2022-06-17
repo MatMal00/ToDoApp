@@ -12,6 +12,8 @@ namespace ToDoApp
     public class TasksToDoViewModel : BaseViewModel
     {
         public ObservableCollection<ToDoTaskViewModel> ToDoTasksList { get; set; } = new ObservableCollection<ToDoTaskViewModel>();
+        
+        public string NewWorkTaskTitle { get; set; }
 
         public string NewWorkTaskDescription { get; set; }
 
@@ -28,6 +30,7 @@ namespace ToDoApp
         {
             var newTask = new ToDoTaskViewModel()
             {
+                Title = NewWorkTaskTitle,
                 Description = NewWorkTaskDescription,
                 CreationDate = DateTime.Now,
                 CategoryType = "Shopping",
