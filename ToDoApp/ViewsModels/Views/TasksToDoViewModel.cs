@@ -13,10 +13,6 @@ namespace ToDoApp
     {
         public ObservableCollection<ToDoTaskViewModel> ToDoTasksList { get; set; } = new ObservableCollection<ToDoTaskViewModel>();
 
-        public string NewWorkTaskDescription { get; set; }
-
-        public string NewWorkTaskCategory { get; set; }
-
         public ICommand AddNewTaskCommand { get; set; }
 
         public TasksToDoViewModel()
@@ -26,16 +22,18 @@ namespace ToDoApp
 
         private void AddNewTask()
         {
+            AddTaskModalView addTaskModal = new AddTaskModalView();
+            addTaskModal.ShowDialog();
+
             var newTask = new ToDoTaskViewModel()
             {
-                Description = NewWorkTaskDescription,
+                Title = addTaskModal.taskTitle,
+                Description = addTaskModal.taskDescription,
                 CreationDate = DateTime.Now,
-                CategoryType = "Shopping",
-            };
+                CategoryType = addTaskModal.taskCategory,
+             };
 
             ToDoTasksList.Add(newTask);
-            MessageBox.Show("dsds");
-            NewWorkTaskDescription = String.Empty;
         }
 
     }

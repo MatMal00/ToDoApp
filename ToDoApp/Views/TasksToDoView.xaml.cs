@@ -25,5 +25,11 @@ namespace ToDoApp
             InitializeComponent();
             DataContext = new TasksToDoViewModel();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddTaskModalView addTaskModalView = new AddTaskModalView();
+            addTaskModalView.ShowDialog();  
+        }
     }
 }

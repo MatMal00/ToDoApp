@@ -29,10 +29,14 @@
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Command="{Binding AddNewTaskCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >ADD NEW TASK</Button>
-            <TextBox Text="{Binding NewWorkTaskDescription, Mode=TwoWay}" Grid.Column="1" Style="{StaticResource TasksToDoTextBoxStyles}"/>
+            <Button Grid.Column="1" Command="{Binding AddNewTaskCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >EDIT TASK</Button>
+            <Button Grid.Column="2" Command="{Binding AddNewTaskCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >REMOVE TASK</Button>
+            <Button Grid.Column="3" Command="{Binding AddNewTaskCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >MARK AS DONE</Button>
         </Grid>
     </Grid>
 </Page>
