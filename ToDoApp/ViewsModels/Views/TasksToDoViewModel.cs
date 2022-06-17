@@ -29,8 +29,8 @@ namespace ToDoApp
             {
                 Title = addTaskModal.taskTitle,
                 Description = addTaskModal.taskDescription,
-                CreationDate = DateTime.Now,
                 CategoryType = addTaskModal.taskCategory,
+                CreationDate = DateTime.Now,
              };
 
             ToDoTasksList.Add(newTask);
