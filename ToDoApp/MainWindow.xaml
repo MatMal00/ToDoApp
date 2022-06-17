@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoApp"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="450" MinWidth="800" Height="450" Width="800">
-    <Grid>
-        <Frame Source="/Views/MenuView.xaml" NavigationUIVisibility="Hidden"/>
+        Title="MainWindow"
+        MinHeight="450" 
+        MinWidth="800" 
+        Height="475"  Width="900"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True">
+   <Border Background="#272537" CornerRadius="40">
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350*"/>
+            <ColumnDefinition Width="571*"/>
+        </Grid.ColumnDefinitions>
+        <Frame Source="/Views/MenuView.xaml" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"/>
     </Grid>
+   </Border>
 </Window>
