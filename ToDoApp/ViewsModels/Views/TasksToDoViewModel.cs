@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -8,7 +10,7 @@ namespace ToDoApp
 {
     public class TasksToDoViewModel : BaseViewModel
     {
-        public ObservableCollection<ToDoTaskModel> ToDoTasksList { get; set; } = new ObservableCollection<ToDoTaskModel>();
+        public ObservableCollection<ToDoControl> ToDoTasksList { get; set; } = new ObservableCollection<ToDoControl>();
 
         public ICommand AddNewTaskCommand { get; set; }
 
@@ -39,15 +41,32 @@ namespace ToDoApp
                     db.SaveChanges();
                 }
 
-                ToDoTasksList.Add(newTask);
+                GetTasks();
             }
 
         }
+
         public void GetTasks()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
             {
-                var ToDoTasks = db.ToDo.ToList<ToDoTaskModel>();
+                ToDoTasksList.Clear();
+
+                var ToDoTasks = db.ToDo.Join(
+                   db.Categories,
+                   todo => todo.CategoryId,
+                   category => category.Id,
+                   (todo, category) => new ToDoControl
+                   {
+                       Id = todo.Id,
+                       Title = todo.Title,
+                       Description = todo.Description,
+                       CreationDate = todo.CreationDate,
+                       CategoryId = todo.CategoryId,
+                       CategoryName = category.Name,
+
+                   }
+                   ).ToList();
 
                 foreach (var item in ToDoTasks)
                     ToDoTasksList.Add(item);
