@@ -10,14 +10,43 @@ namespace ToDoApp
 {
     public class TasksToDoViewModel : BaseViewModel
     {
-        public ObservableCollection<ToDoControl> ToDoTasksList { get; set; } = new ObservableCollection<ToDoControl>();
+        public ObservableCollection<ToDoTaskViewModel> ToDoTasksList { get; set; } = new ObservableCollection<ToDoTaskViewModel>();
 
         public ICommand AddNewTaskCommand { get; set; }
+
+        public ICommand DeleteTaskCommand { get; set; }
 
         public TasksToDoViewModel()
         {
             AddNewTaskCommand = new RelayCommand(AddNewTask);
+            DeleteTaskCommand = new RelayCommand(DeleteSelectedTasks);
             GetTasks();
+        }
+
+        public void GetTasks()
+        {
+            using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
+            {
+                ToDoTasksList.Clear();
+
+                var ToDoTasks = db.ToDo.Join(
+                   db.Categories,
+                   todo => todo.CategoryId,
+                   category => category.Id,
+                   (todo, category) => new ToDoTaskViewModel
+                   {
+                       Id = todo.Id,
+                       Title = todo.Title,
+                       Description = todo.Description,
+                       CreationDate = todo.CreationDate,
+                       CategoryId = todo.CategoryId,
+                       CategoryName = category.Name,
+                   }
+                   ).ToList();
+
+                foreach (var item in ToDoTasks)
+                    ToDoTasksList.Add(item);
+            }
         }
 
         private void AddNewTask()
@@ -43,36 +72,20 @@ namespace ToDoApp
 
                 GetTasks();
             }
-
         }
 
-        public void GetTasks()
+        private void DeleteSelectedTasks()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
             {
-                ToDoTasksList.Clear();
+                foreach (var task in ToDoTasksList.Where(t => t.IsChecked))
+                    db.Remove(db.ToDo.Find(task.Id));
 
-                var ToDoTasks = db.ToDo.Join(
-                   db.Categories,
-                   todo => todo.CategoryId,
-                   category => category.Id,
-                   (todo, category) => new ToDoControl
-                   {
-                       Id = todo.Id,
-                       Title = todo.Title,
-                       Description = todo.Description,
-                       CreationDate = todo.CreationDate,
-                       CategoryId = todo.CategoryId,
-                       CategoryName = category.Name,
+                db.SaveChanges();
+                GetTasks();
 
-                   }
-                   ).ToList();
-
-                foreach (var item in ToDoTasks)
-                    ToDoTasksList.Add(item);
+                // TO DO - ADD TO DELETED TASKS LIST
             }
         }
-
-
     }
 }

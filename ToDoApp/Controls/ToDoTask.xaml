@@ -25,7 +25,9 @@
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="1" BorderThickness="1,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>
                 <Border Grid.Column="2" BorderThickness="1,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>
-                <CheckBox Grid.Column="0" IsChecked="{Binding IsSelected}"/>
+
+                <CheckBox Grid.Column="0" IsChecked="{Binding IsChecked}"/>
+                
                 <TextBlock Grid.Column="1" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Title}"/>
                 <TextBlock Grid.Column="2" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Description}"/>
                 <TextBlock Grid.Column="3" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding CreationDate}"/>
