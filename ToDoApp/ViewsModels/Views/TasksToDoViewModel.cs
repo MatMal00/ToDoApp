@@ -79,12 +79,21 @@ namespace ToDoApp
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
             {
                 foreach (var task in ToDoTasksList.Where(t => t.IsChecked))
+                {
                     db.Remove(db.ToDo.Find(task.Id));
+
+                    db.Deleted.Add(new DeletedTaskModel
+                    {
+                        Title = task.Title,
+                        Description = task.Description,
+                        CategoryId = task.CategoryId,
+                        CreationDate = task.CreationDate,
+                        RemovalDate = new DateTime()
+                    });
+                }
 
                 db.SaveChanges();
                 GetTasks();
-
-                // TO DO - ADD TO DELETED TASKS LIST
             }
         }
     }
