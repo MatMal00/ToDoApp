@@ -25,6 +25,8 @@ namespace ToDoApp
 
         public string taskCategory { get; set; }
 
+        public bool isAdding { get; set; } = false;
+
         public AddTaskModalView()
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace ToDoApp
             taskTitle = titleTextBox.Text;
             taskDescription = descriptionTextBox.Text;
             taskCategory = "Udało się";
+            isAdding = true;
             this.Close();
         }
     }
