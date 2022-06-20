@@ -1,11 +1,11 @@
-﻿<Window x:Class="ToDoApp.AddTaskModalView"
+﻿<Window x:Class="ToDoApp.EditTaskModalView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoApp"
         mc:Ignorable="d"
-        Title="AddTaskModalView" Height="250" Width="800">
+        Title="EditTaskModalView" Height="250" Width="800">
     <Grid Background="#FF333333">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -33,7 +33,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Button Click="Button_Add_Task" Width="200px" Grid.Column="1" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >EDIT</Button>
+            <Button Click="Button_Edit_Task" Width="200px" Grid.Column="1" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >EDIT</Button>
         </Grid>
     </Grid>
 </Window>

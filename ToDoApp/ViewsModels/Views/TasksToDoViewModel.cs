@@ -14,12 +14,15 @@ namespace ToDoApp
 
         public ICommand AddNewTaskCommand { get; set; }
 
+        public ICommand EditTaskCommand { get; set; }
+
         public ICommand DeleteTaskCommand { get; set; }
 
         public TasksToDoViewModel()
         {
             AddNewTaskCommand = new RelayCommand(AddNewTask);
             DeleteTaskCommand = new RelayCommand(DeleteSelectedTasks);
+            EditTaskCommand = new RelayCommand(EditTask);   
             GetTasks();
         }
 
@@ -73,6 +76,36 @@ namespace ToDoApp
 
                 GetTasks();
             }
+        }
+
+        private void EditTask()
+        {
+            var getSelected = ToDoTasksList.Where(t => t.IsChecked).ToList();
+
+            if(getSelected != null && getSelected.Count() == 1)
+            {
+                var selectedTask = getSelected[0];
+                EditTaskModalView editTaskModal = new EditTaskModalView(selectedTask.Title, selectedTask.Description, selectedTask.CategoryName);
+
+                editTaskModal.ShowDialog();
+
+                if (editTaskModal.isEditing == true)
+                {
+                    using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
+                    {
+                        var taskToEdit = db.ToDo.Find(selectedTask.Id);
+                        taskToEdit.Title = editTaskModal.taskTitle;
+                        taskToEdit.Description = editTaskModal.taskDescription;
+                        taskToEdit.CategoryId = editTaskModal.taskCategoryId;
+                        db.SaveChanges();
+                    }
+                    GetTasks();
+                }
+            }else
+            {
+                MessageBox.Show($"{(getSelected.Count() > 1 ? "You can choose only one task at the same time" : "You have to choose task !")}");
+            }  
+
         }
 
         private void DeleteSelectedTasks()
