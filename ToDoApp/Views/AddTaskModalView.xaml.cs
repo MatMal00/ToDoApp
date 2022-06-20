@@ -23,7 +23,9 @@ namespace ToDoApp
 
         public string taskDescription { get; set; }
 
-        public string taskCategory { get; set; }
+        public int taskCategoryId { get; set; }
+
+        public string selectedCategoryName { get; set; }    
 
         public bool isAdding { get; set; } = false;
 
@@ -34,11 +36,34 @@ namespace ToDoApp
 
         private void Button_Add_Task(object sender, RoutedEventArgs e)
         {
-            taskTitle = titleTextBox.Text;
-            taskDescription = descriptionTextBox.Text;
-            taskCategory = "Udało się";
-            isAdding = true;
-            this.Close();
+            using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
+            {
+                taskTitle = titleTextBox.Text;
+                taskDescription = descriptionTextBox.Text;
+                taskCategoryId = db.Categories.Where(c => c.Name == selectedCategoryName).Single().Id;
+                isAdding = true;
+                this.Close();
+            }      
+        }
+
+        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
+            {
+                var categories = db.Categories.ToList();
+
+                var combo = sender as ComboBox;
+                foreach (var item in categories)
+                    combo.Items.Add(item.Name);
+
+                combo.SelectedIndex = 0;
+            }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedComboItem = sender as ComboBox;
+            selectedCategoryName = selectedComboItem.SelectedItem as string;
         }
     }
 }

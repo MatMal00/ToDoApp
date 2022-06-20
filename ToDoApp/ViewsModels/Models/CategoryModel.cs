@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoApp
 {
-    internal class CategoryModel: BaseViewModel
+    public class CategoryModel: BaseViewModel
     {
         public int Id { get; set; }
 
