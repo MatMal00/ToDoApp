@@ -49,6 +49,7 @@ namespace ToDoApp
             }
         }
 
+
         private void AddNewTask()
         {
             AddTaskModalView addTaskModal = new AddTaskModalView();
@@ -60,7 +61,7 @@ namespace ToDoApp
                 {
                     Title = addTaskModal.taskTitle,
                     Description = addTaskModal.taskDescription,
-                    CategoryId = 1,
+                    CategoryId = addTaskModal.taskCategoryId,
                     CreationDate = DateTime.Now,
                 };
 
