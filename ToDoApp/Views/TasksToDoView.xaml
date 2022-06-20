@@ -36,7 +36,7 @@
             <Button Grid.Column="0" Command="{Binding AddNewTaskCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >ADD NEW TASK</Button>
             <Button Grid.Column="1" Command="{Binding EditTaskCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >EDIT TASK</Button>
             <Button Grid.Column="2" Command="{Binding DeleteTaskCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >REMOVE TASK</Button>
-            <Button Grid.Column="3" Command="{Binding AddNewTaskCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >MARK AS DONE</Button>
+            <Button Grid.Column="3" Command="{Binding MarkAsDoneCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >MARK AS DONE</Button>
         </Grid>
     </Grid>
 </Page>

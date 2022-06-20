@@ -18,11 +18,14 @@ namespace ToDoApp
 
         public ICommand DeleteTaskCommand { get; set; }
 
+        public ICommand MarkAsDoneCommand { get; set; }
+
         public TasksToDoViewModel()
         {
             AddNewTaskCommand = new RelayCommand(AddNewTask);
             DeleteTaskCommand = new RelayCommand(DeleteSelectedTasks);
-            EditTaskCommand = new RelayCommand(EditTask);   
+            EditTaskCommand = new RelayCommand(EditTask);
+            MarkAsDoneCommand = new RelayCommand(MarkAsDone);
             GetTasks();
         }
 
@@ -94,6 +97,7 @@ namespace ToDoApp
                     using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
                     {
                         var taskToEdit = db.ToDo.Find(selectedTask.Id);
+
                         taskToEdit.Title = editTaskModal.taskTitle;
                         taskToEdit.Description = editTaskModal.taskDescription;
                         taskToEdit.CategoryId = editTaskModal.taskCategoryId;
@@ -123,6 +127,29 @@ namespace ToDoApp
                         CategoryId = task.CategoryId,
                         CreationDate = task.CreationDate,
                         RemovalDate = new DateTime()
+                    });
+                }
+
+                db.SaveChanges();
+                GetTasks();
+            }
+        }
+
+        private void MarkAsDone()
+        {
+            using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
+            {
+                foreach (var task in ToDoTasksList.Where(t => t.IsChecked))
+                {
+                    db.Remove(db.ToDo.Find(task.Id));
+
+                    db.Done.Add(new DoneTaskModel
+                    {
+                        Title = task.Title,
+                        Description = task.Description,
+                        CategoryId = task.CategoryId,
+                        CreationDate = task.CreationDate,
+                        CompletionDate = new DateTime()
                     });
                 }
 
