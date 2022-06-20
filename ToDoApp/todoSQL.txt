@@ -1,0 +1,52 @@
+CREATE TABLE [dbo].[ToDo] (
+	[Id] INT IDENTITY(1,1) NOT NULL,
+	[Title] NVARCHAR(100) NOT NULL,
+	[Description] NVARCHAR(300) NOT NULL,
+	[CategoryId] INT NOT NULL,
+	[CreationDate] Date NOT NULL,
+	PRIMARY KEY ([Id])
+);
+
+CREATE TABLE [dbo].[Done] (
+	[Id] INT IDENTITY(1,1) NOT NULL,
+	[Title] NVARCHAR(100) NOT NULL,
+	[Description] NVARCHAR(300) NOT NULL,
+	[CategoryId] INT NOT NULL,
+	[CreationDate] Date NOT NULL,
+	[CompletionDate] Date NOT NULL,
+	PRIMARY KEY ([Id])
+);
+
+CREATE TABLE [dbo].[Deleted] (
+	[Id] INT IDENTITY(1,1) NOT NULL,
+	[Title] NVARCHAR(100) NOT NULL,
+	[Description] NVARCHAR(300) NOT NULL,
+	[CategoryId] INT NOT NULL,
+	[CreationDate] Date NOT NULL,
+	[RemovalDate] Date NOT NULL,
+	PRIMARY KEY ([Id])
+);
+
+CREATE TABLE [dbo].[Categories] (
+	[Id] INT IDENTITY(1,1) NOT NULL,
+	[Name] NVARCHAR(100) NOT NULL,
+	PRIMARY KEY ([Id])
+);
+
+ALTER TABLE [dbo].[ToDo]
+	ADD CONSTRAINT FK_ToDo_Categories FOREIGN KEY (CategoryId)
+	REFERENCES [dbo].[Categories] (Id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE;
+	
+ALTER TABLE [dbo].[Done]
+	ADD CONSTRAINT FK_Done_Categories FOREIGN KEY (CategoryId)
+	REFERENCES [dbo].[Categories] (Id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE;
+	
+ALTER TABLE [dbo].[Deleted]
+	ADD CONSTRAINT FK_Deleted_Categories FOREIGN KEY (CategoryId)
+	REFERENCES [dbo].[Categories] (Id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE;
