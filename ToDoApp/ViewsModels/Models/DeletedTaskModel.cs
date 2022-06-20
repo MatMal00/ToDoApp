@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoApp
 {
-    internal class DeletedTaskModel: BaseViewModel
+    public class DeletedTaskModel: BaseViewModel
     {
         public int Id { get; set; }
 
