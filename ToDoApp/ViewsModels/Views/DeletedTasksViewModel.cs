@@ -17,7 +17,7 @@ namespace ToDoApp
         public DeletedTasksViewModel()
         {
             DeleteTaskPernamentlyCommand = new RelayCommand(DeletePermanentlySelectedTasks);
-            RestoreToDoCommand = new RelayCommand(MarkAsDone);
+            RestoreToDoCommand = new RelayCommand(RestoreToDo);
             GetDeletedTasks();
         }
 
@@ -27,7 +27,7 @@ namespace ToDoApp
             {
                 DeletedTasksList.Clear();
 
-                var ToDoTasks = db.Done.Join(
+                var ToDoTasks = db.Deleted.Join(
                    db.Categories,
                    todo => todo.CategoryId,
                    category => category.Id,
@@ -37,6 +37,7 @@ namespace ToDoApp
                        Title = todo.Title,
                        Description = todo.Description,
                        CreationDate = todo.CreationDate,
+                       RemovalDate = todo.RemovalDate,
                        CategoryId = todo.CategoryId,
                        CategoryName = category.Name,
                    }
@@ -48,39 +49,13 @@ namespace ToDoApp
         }
 
 
-        private void AddNewTask()
-        {
-            AddTaskModalView addTaskModal = new AddTaskModalView();
-            addTaskModal.ShowDialog();
-
-            if (addTaskModal.isAdding == true)
-            {
-                var newTask = new ToDoTaskModel()
-                {
-                    Title = addTaskModal.taskTitle,
-                    Description = addTaskModal.taskDescription,
-                    CategoryId = addTaskModal.taskCategoryId,
-                    CreationDate = DateTime.Now,
-                };
-
-                using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
-                {
-                    db.ToDo.Add(newTask);
-                    db.SaveChanges();
-                }
-
-                GetDeletedTasks();
-            }
-        }
-
-
         private void DeletePermanentlySelectedTasks()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
             {
                 foreach (var task in DeletedTasksList.Where(t => t.IsChecked))
                 {
-                    db.Remove(db.ToDo.Find(task.Id));
+                    db.Remove(db.Deleted.Find(task.Id));
                 }
 
                 db.SaveChanges();
@@ -88,21 +63,20 @@ namespace ToDoApp
             }
         }
 
-        private void MarkAsDone()
+        private void RestoreToDo()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
             {
                 foreach (var task in DeletedTasksList.Where(t => t.IsChecked))
                 {
-                    db.Remove(db.ToDo.Find(task.Id));
+                    db.Remove(db.Deleted.Find(task.Id));
 
-                    db.Done.Add(new DoneTaskModel
+                    db.ToDo.Add(new ToDoTaskModel
                     {
                         Title = task.Title,
                         Description = task.Description,
                         CategoryId = task.CategoryId,
                         CreationDate = task.CreationDate,
-                        CompletionDate = new DateTime()
                     });
                 }
 

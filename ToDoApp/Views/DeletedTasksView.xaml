@@ -15,12 +15,12 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <local:BackButton Grid.Row="0"/>
-        <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="TO DO TASKS" Grid.Row="1" Foreground="White" FontFamily="Arial Blac" FontSize="36"/>
+        <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="DELETED TASKS" Grid.Row="1" Foreground="White" FontFamily="Arial Blac" FontSize="36"/>
         <ScrollViewer Grid.Row="2">
             <ItemsControl ItemsSource="{Binding DeletedTasksList}" Margin="10">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:ToDoTask/>
+                        <local:DeletedTask />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
@@ -31,8 +31,9 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="2" Command="{Binding DeleteTaskPernamentlyCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >REMOVE TASK</Button>
+            </Grid.ColumnDefinitions> 
+            <Button Grid.Column="2" Command="{Binding DeleteTaskPernamentlyCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >DELETE PERMANENTLY</Button>
+            <Button Grid.Column="1" Command="{Binding RestoreToDoCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >RESTORE TO DO</Button>
         </Grid>
     </Grid>
 </Page>

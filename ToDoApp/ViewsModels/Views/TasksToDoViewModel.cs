@@ -126,7 +126,7 @@ namespace ToDoApp
                         Description = task.Description,
                         CategoryId = task.CategoryId,
                         CreationDate = task.CreationDate,
-                        RemovalDate = new DateTime()
+                        RemovalDate = DateTime.Now,
                     });
                 }
 
@@ -149,7 +149,7 @@ namespace ToDoApp
                         Description = task.Description,
                         CategoryId = task.CategoryId,
                         CreationDate = task.CreationDate,
-                        CompletionDate = new DateTime()
+                        CompletionDate = DateTime.Now
                     });
                 }
 
