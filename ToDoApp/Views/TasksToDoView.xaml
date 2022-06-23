@@ -292,9 +292,9 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Template="{DynamicResource ButtonAddNewTask}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" Grid.Column="0" Command="{Binding AddNewTaskCommand}" >ADD NEW TASK</Button>
-                <Button Style="{DynamicResource ButtonEditTask}" Grid.Column="1" Command="{Binding AddNewTaskCommand}"  FontWeight="Bold">EDIT TASK</Button>
-                <Button Style="{DynamicResource ButtonRemoveTask}" Grid.Column="2"  FontWeight="Bold" Command="{Binding AddNewTaskCommand}"  >REMOVE TASK</Button>
-                <Button Style="{DynamicResource ButtonMarkAsDone}" Grid.Column="3"  FontWeight="Bold" Command="{Binding AddNewTaskCommand}"  >MARK AS DONE</Button>
+                <Button Style="{DynamicResource ButtonEditTask}" Grid.Column="1" Command="{Binding EditTaskCommand}"  FontWeight="Bold">EDIT TASK</Button>
+                <Button Style="{DynamicResource ButtonRemoveTask}" Grid.Column="2"  FontWeight="Bold" Command="{Binding DeleteTaskCommand}"  >REMOVE TASK</Button>
+                <Button Style="{DynamicResource ButtonMarkAsDone}" Grid.Column="3"  FontWeight="Bold" Command="{Binding MarkAsDoneCommand}"  >MARK AS DONE</Button>
             </Grid>
             <Canvas Grid.Row="2"/>
         </Grid>

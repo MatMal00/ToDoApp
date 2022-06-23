@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 namespace ToDoApp
 {
     /// <summary>
-    /// Interaction logic for AddTaskModalView.xaml
+    /// Interaction logic for EditTaskModalView.xaml
     /// </summary>
-    public partial class AddTaskModalView : Window
+    public partial class EditTaskModalView : Window
     {
         public string taskTitle { get; set; }
 
@@ -25,25 +25,28 @@ namespace ToDoApp
 
         public int taskCategoryId { get; set; }
 
-        public string selectedCategoryName { get; set; }    
+        public string selectedCategoryName { get; set; }
 
-        public bool isAdding { get; set; } = false;
+        public bool isEditing { get; set; } = false;
 
-        public AddTaskModalView()
+        public EditTaskModalView(string title, string description, string categoryName)
         {
             InitializeComponent();
+            titleTextBox.Text = title;
+            descriptionTextBox.Text = description;
+            selectedCategoryName = categoryName;    
         }
 
-        private void Button_Add_Task(object sender, RoutedEventArgs e)
+        private void Button_Edit_Task(object sender, RoutedEventArgs e)
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
             {
                 taskTitle = titleTextBox.Text;
                 taskDescription = descriptionTextBox.Text;
                 taskCategoryId = db.Categories.Where(c => c.Name == selectedCategoryName).Single().Id;
-                isAdding = true;
+                isEditing = true;
                 this.Close();
-            }      
+            }
         }
 
         private void ComboBox_Loaded(object sender, RoutedEventArgs e)
@@ -51,12 +54,16 @@ namespace ToDoApp
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
             {
                 var categories = db.Categories.ToList();
-
                 var combo = sender as ComboBox;
-                foreach (var item in categories)
-                    combo.Items.Add(item.Name);
+                int categoryIndex = 0;
 
-                combo.SelectedIndex = 0;
+                for (int i = 0; i < categories.Count(); i++)
+                {
+                    combo.Items.Add(categories[i].Name);
+                    if (categories[i].Name == selectedCategoryName) categoryIndex = i;
+                }
+
+                combo.SelectedIndex = categoryIndex;
             }
         }
 
