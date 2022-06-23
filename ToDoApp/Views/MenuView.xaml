@@ -64,9 +64,9 @@
                    FontWeight="Bold" 
                    FontFamily="Arial Black">- TODO APP -</TextBlock>
             <StackPanel Orientation="Vertical" Margin="0,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <local:NavButton Style="{DynamicResource NavButtonToDo}" Text="ToDo" NavUri="/Views/TasksToDoView.xaml" Click="NavButton_Click_1" />
+                <local:NavButton Style="{DynamicResource NavButtonToDo}" Text="ToDo" NavUri="/Views/TasksToDoView.xaml" />
                 <local:NavButton Style="{DynamicResource NavButtonDone}" Text="Done" NavUri="/Views/DoneTasksView.xaml" />
-                <local:NavButton Style="{DynamicResource NavButtonDeleted}" Text="Deleted" NavUri="/Views/DeletedTasksView.xaml" Click="NavButton_Click_2" />
+                <local:NavButton Style="{DynamicResource NavButtonDeleted}" Text="Deleted" NavUri="/Views/DeletedTasksView.xaml" />
             </StackPanel>
 
             <Grid Grid.Column="1"

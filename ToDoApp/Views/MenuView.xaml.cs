@@ -32,20 +32,6 @@ namespace ToDoApp
             if(ClickedButton != null)   
                 NavigationService.Navigate(ClickedButton.NavUri);
         }
-
-        private void NavButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void NavButton_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void NavButton_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
+  
     }
 }
