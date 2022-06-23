@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ToDoApp
 {
-    public class ToDoTaskViewModel: ToDoTaskModel
+    public class CategoryModel: BaseViewModel
     {
-        public string CategoryName { get; set; }
+        public int Id { get; set; }
 
-        public bool IsChecked { get; set; } = false;
+        public string Name { get; set; }
     }
 }

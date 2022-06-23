@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoApp
 {
-    public class ToDoTaskViewModel: ToDoTaskModel
+    public class DeletedTaskViewModel: DeletedTaskModel
     {
         public string CategoryName { get; set; }
 
