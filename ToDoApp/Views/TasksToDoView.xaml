@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ToDoApp"
+       xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DoneTasksView">
@@ -205,40 +206,97 @@
         </Style>
     </Page.Resources>
     <Border CornerRadius="40" Background="#272537">
-        
+
         <Grid>
             <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
-            <local:BackButton Grid.Row="0" Loaded="BackButton_Loaded"/>
-            
-            <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="TO DO TASKS" Grid.Row="1" Foreground="White" FontFamily="Arial Black" FontSize="40"/>
-      
-            <ScrollViewer Grid.Row="2">
-            <ItemsControl ItemsSource="{Binding ToDoTasksList}" Margin="10">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <local:ToDoTask/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
-        <Grid Grid.Row="3">
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <!--<local:BackButton Grid.Row="0" Loaded="BackButton_Loaded"/>-->
+
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Label FontWeight="Bold"  HorizontalAlignment="Left" Content="TO DO TASKS"  Foreground="White" FontFamily="Arial Black" FontSize="40" Margin="205,0,0,0"/>
+            </Grid>
+            <ScrollViewer Grid.Row="2" Grid.Column="1">
+                <ItemsControl ItemsSource="{Binding ToDoTasksList}" Margin="10">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:ToDoTask/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+
+            <!--<Grid Grid.Row="0" Background="#1a1924"></Grid>
+            <Grid Grid.Row="0" Grid.Column="1" Background="#1a1924"></Grid>
+            <Grid Grid.Row="3"  Grid.Column="0" Background="#1a1924"></Grid>-->
+
+            <Border CornerRadius="20"   Grid.Row="1"
+                    Grid.RowSpan="2">
+                <StackPanel Width="80"
+                    HorizontalAlignment="Left"
+                    Background="#1a1924"
+                  >
+
+                <Button x:Name="Home"
+                    Height="80"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Margin="0,25,0,0">
+                    <fa:ImageAwesome Icon="Home" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        Width="25" Height="30" Foreground="White"></fa:ImageAwesome>
+                </Button>
+                <Button x:Name="TaskToDo"
+                    Height="80"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Margin="0,0,0,0">
+                    <fa:ImageAwesome Icon="Plus" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        Width="25" Height="30" Foreground="White"></fa:ImageAwesome>
+                </Button>
+                <Button x:Name="TaskDone"
+                    Height="80"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Margin="0,0,0,0">
+                    <fa:ImageAwesome Icon="Check" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        Width="25" Height="30" Foreground="White"></fa:ImageAwesome>
+                </Button>
+
+                <Button x:Name="TaskDeleted"
+                    Height="80"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Margin="0,0,0,0">
+                    <fa:ImageAwesome Icon="Trash" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        Width="25" Height="30" Foreground="White"></fa:ImageAwesome>
+                </Button>
+
+            </StackPanel>
+            </Border>
+
+            <Grid Grid.Row="3" Grid.Column="1" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
-            <Button Template="{DynamicResource ButtonAddNewTask}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" Grid.Column="0" Command="{Binding AddNewTaskCommand}" >ADD NEW TASK</Button>
-            <Button Style="{DynamicResource ButtonEditTask}" Grid.Column="1" Command="{Binding AddNewTaskCommand}"  FontWeight="Bold">EDIT TASK</Button>
-            <Button Style="{DynamicResource ButtonRemoveTask}" Grid.Column="2"  FontWeight="Bold" Command="{Binding AddNewTaskCommand}"  >REMOVE TASK</Button>
-            <Button Style="{DynamicResource ButtonMarkAsDone}" Grid.Column="3"  FontWeight="Bold" Command="{Binding AddNewTaskCommand}"  >MARK AS DONE</Button>
+                <Button Template="{DynamicResource ButtonAddNewTask}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" Grid.Column="0" Command="{Binding AddNewTaskCommand}" >ADD NEW TASK</Button>
+                <Button Style="{DynamicResource ButtonEditTask}" Grid.Column="1" Command="{Binding AddNewTaskCommand}"  FontWeight="Bold">EDIT TASK</Button>
+                <Button Style="{DynamicResource ButtonRemoveTask}" Grid.Column="2"  FontWeight="Bold" Command="{Binding AddNewTaskCommand}"  >REMOVE TASK</Button>
+                <Button Style="{DynamicResource ButtonMarkAsDone}" Grid.Column="3"  FontWeight="Bold" Command="{Binding AddNewTaskCommand}"  >MARK AS DONE</Button>
+            </Grid>
+            <Canvas Grid.Row="2"/>
         </Grid>
-    </Grid>
     </Border>
 </Page>
