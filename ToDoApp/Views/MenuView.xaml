@@ -5,21 +5,129 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ToDoApp"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="475" d:DesignWidth="900"
       Title="MenuView">
-
-    <Grid Background="#FF333333" ButtonBase.Click="Handle_Page_Change">
-        <TextBlock VerticalAlignment="Top" 
+    <Page.Resources>
+        <Style x:Key="NavButtonDeleted" TargetType="{x:Type local:NavButton}">
+            <Setter Property="Margin" Value="0 10 0 10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontFamily" Value="Franklin Gothic Heavy"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:NavButton}">
+                        <Border Background="red" BorderThickness="3" BorderBrush="Black" CornerRadius="20" Padding="40 15">
+                            <TextBlock Margin="2" Grid.Row="1" Text="{TemplateBinding Text}" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="NavButtonDone" TargetType="{x:Type local:NavButton}">
+            <Setter Property="Margin" Value="0 10 0 10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontFamily" Value="Franklin Gothic Heavy"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:NavButton}">
+                        <Border Background="GreenYellow" BorderThickness="3" BorderBrush="Black" CornerRadius="20" Padding="40 15">
+                            <TextBlock Margin="2" Grid.Row="1" Text="{TemplateBinding Text}" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="NavButtonToDo" TargetType="{x:Type local:NavButton}">
+            <Setter Property="Margin" Value="0 10 0 10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontFamily" Value="Franklin Gothic Heavy"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:NavButton}">
+                        <Border Background="GhostWhite" BorderThickness="3" BorderBrush="Black" CornerRadius="20" Padding="40 15">
+                            <TextBlock Margin="2" Grid.Row="1" Text="{TemplateBinding Text}" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Border Background="#272537" CornerRadius="40">
+        <Grid  ButtonBase.Click="Handle_Page_Change">
+            <TextBlock VerticalAlignment="Top" 
                    HorizontalAlignment="Center" 
-                   Margin="0 40 0 0" 
+                   Margin="0 45 0 0" 
                    Foreground="White" 
                    FontSize="40" 
                    FontWeight="Bold" 
-                   FontFamily="Arial Black">TODO APP</TextBlock>
-        <StackPanel Orientation="Vertical" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <local:NavButton Text="ToDo" NavUri="/Views/TasksToDoView.xaml" />
-            <local:NavButton Text="Done" NavUri="/Views/DoneTasksView.xaml" />
-            <local:NavButton Text="Deleted" NavUri="/Views/DeletedTasksView.xaml" />
-        </StackPanel>
-    </Grid>
+                   FontFamily="Arial Black">- TODO APP -</TextBlock>
+            <StackPanel Orientation="Vertical" Margin="0,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <local:NavButton Style="{DynamicResource NavButtonToDo}" Text="ToDo" NavUri="/Views/TasksToDoView.xaml" />
+                <local:NavButton Style="{DynamicResource NavButtonDone}" Text="Done" NavUri="/Views/DoneTasksView.xaml" />
+                <local:NavButton Style="{DynamicResource NavButtonDeleted}" Text="Deleted" NavUri="/Views/DeletedTasksView.xaml" />
+            </StackPanel>
+
+            <Grid Grid.Column="1"
+              Grid.RowSpan="2"
+               Margin="0, -150, -110, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="41*"/>
+                </Grid.RowDefinitions>
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="60"/>
+                </Grid.RenderTransform>
+                <StackPanel Orientation="Horizontal" Grid.RowSpan="2">
+                    <StackPanel RenderTransformOrigin="0.419,0.454">
+                        <Border
+                    Width="300"
+                    Height="30"
+                    Background="White"
+                    Margin="50 0 0 0"
+                    CornerRadius="20"
+                />
+                        <Border
+                    Width="300"
+                    Height="30"
+                    Background="GreenYellow"
+                    Margin="150 15 0 0"
+                    CornerRadius="20"
+                />
+                        <Border
+                    Width="300"
+                    Height="30"
+                    Background="Red"
+                    Margin="0 15 0 0"
+                    CornerRadius="20"
+                />
+                    </StackPanel>
+                    <StackPanel>
+                        <Border
+                    Width="300"
+                    Height="30"
+                    Background="White"
+                    Margin="50 0 0 0"
+                    CornerRadius="20"
+                />
+                        <Border
+                    Width="300"
+                    Height="30"
+                    Background="GreenYellow"
+                    Margin="150 15 0 0"
+                    CornerRadius="20"
+                />
+                        <Border
+                    Width="300"
+                    Height="30"
+                    Background="Red"
+                    Margin="0 15 0 0"
+                    CornerRadius="20"
+                />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
 </Page>

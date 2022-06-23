@@ -17,7 +17,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="EDIT TASK" Grid.Row="1" Foreground="White" FontFamily="Arial Blac" FontSize="36"/>
+            <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="ADD TASK" Grid.Row="1" Foreground="White" FontFamily="Arial Blac" FontSize="36"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -33,7 +33,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Button Click="Button_Add_Task" Width="200px" Grid.Column="1" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >EDIT</Button>
+            <Button Click="Button_Add_Task" Width="200px" Grid.Column="1" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >ADD</Button>
         </Grid>
     </Grid>
 </Window>

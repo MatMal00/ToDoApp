@@ -31,5 +31,10 @@ namespace ToDoApp
             AddTaskModalView addTaskModalView = new AddTaskModalView();
             addTaskModalView.ShowDialog();  
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

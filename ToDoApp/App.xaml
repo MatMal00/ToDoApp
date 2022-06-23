@@ -9,6 +9,10 @@
                 <ResourceDictionary Source="Styles/Task.xaml"/>
                 <ResourceDictionary Source="Styles/TasksToDo.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <FontFamily x:Key="FontAwesome">/Fonts/fontawesome-webfont.ttf#FontAwesome</FontFamily>
         </ResourceDictionary>
+        
+      
     </Application.Resources>
+    
 </Application>
