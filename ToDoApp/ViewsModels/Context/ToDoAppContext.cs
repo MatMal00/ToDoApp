@@ -19,12 +19,12 @@ namespace ToDoApp
 
         public ToDoAppContext(string connectionString)
         {
-            this.ConnectionString = connectionString;
+            ConnectionString = connectionString;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(this.ConnectionString);
+            options.UseSqlServer(ConnectionString);
         }
     }
 }

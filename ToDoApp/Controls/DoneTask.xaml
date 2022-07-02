@@ -6,12 +6,12 @@
              xmlns:local="clr-namespace:ToDoApp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Style="{StaticResource GridTaskContainerStyle}">
+    <Grid Style="{StaticResource GridTaskContainerStyle}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Border Style="{StaticResource DefaultTaskBorderStyle}">
+        <Border Background="#fff" BorderThickness="3" BorderBrush="#000">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -24,10 +24,10 @@
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="1" BorderThickness="1,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>
-                <Border Grid.Column="2" BorderThickness="1,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>
+                <Border Grid.Column="1" BorderBrush="#000" BorderThickness="3,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>
+                <Border Grid.Column="2" BorderBrush="#000"  BorderThickness="3,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>
 
-                <CheckBox Grid.Column="0" IsChecked="{Binding IsChecked}"/>
+                <RadioButton Grid.Column="0" Margin="5" BorderThickness="2" BorderBrush="#000" IsChecked="{Binding IsChecked}"/>
 
                 <TextBlock Grid.Column="1" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Title}"/>
                 <TextBlock Grid.Column="2" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Description}"/>
