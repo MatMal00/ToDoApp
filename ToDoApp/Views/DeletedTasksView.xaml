@@ -7,7 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DeletedTasksViewModel">
-    <Grid Background="#FF333333">
+
+    <Border CornerRadius="40" Background="#272537">
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
@@ -15,7 +17,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <local:BackButton Grid.Row="0"/>
-        <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="DELETED TASKS" Grid.Row="1" Foreground="White" FontFamily="Arial Blac" FontSize="36"/>
+        <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="DELETED TASKS" Grid.Row="1" Foreground="White" FontFamily="Arial Black" FontSize="36"/>
         <ScrollViewer Grid.Row="2">
             <ItemsControl ItemsSource="{Binding DeletedTasksList}" Margin="10">
                 <ItemsControl.ItemTemplate>
@@ -26,14 +28,15 @@
             </ItemsControl>
         </ScrollViewer>
         <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions> 
-            <Button Grid.Column="2" Command="{Binding DeleteTaskPernamentlyCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >DELETE PERMANENTLY</Button>
-            <Button Grid.Column="1" Command="{Binding RestoreToDoCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >RESTORE TO DO</Button>
-        </Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="2" Template="{DynamicResource DeleteBtn}" Command="{Binding DeleteTaskPernamentlyCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >DELETE PERMANENTLY</Button>
+                <Button Grid.Column="1" Template="{DynamicResource RestoreBtn}" Command="{Binding RestoreToDoCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >RESTORE TO DO</Button>
+            </Grid>
     </Grid>
+        </Border>
 </Page>
