@@ -32,6 +32,10 @@ namespace ToDoApp
             if(ClickedButton != null)   
                 NavigationService.Navigate(ClickedButton.NavUri);
         }
-  
+
+        private void Button_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
