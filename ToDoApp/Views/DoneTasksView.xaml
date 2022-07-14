@@ -10,14 +10,19 @@
     <Border CornerRadius="40" Background="#272537">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
             <local:BackButton Grid.Row="0"/>
-            <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="DONE TASKS" Grid.Row="1" Foreground="White" FontFamily="Arial BlacK" FontSize="36"/>
-            <ScrollViewer Grid.Row="2">
+            <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="DONE TASKS" Grid.Row="1" Grid.Column="2" Foreground="White" FontFamily="Arial Black" FontSize="40"/>
+            <ScrollViewer Grid.Row="2" Grid.Column="1">
                 <ItemsControl ItemsSource="{Binding DoneTasksList}" Margin="10">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -26,13 +31,21 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
-            <Grid Grid.Row="3">
+
+            <Border CornerRadius="20"   Grid.Row="1"
+                    Grid.RowSpan="2">
+                <local:Navigation/>
+            </Border>
+
+            <Grid Grid.Row="3" Grid.Column="1" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
+
+
                 <Button Template="{DynamicResource RestoreBtn}" Grid.Column="1" Command="{Binding RestoreToDoCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >RESTORE TO DO</Button>
                 <Button Template="{DynamicResource DeleteBtn}"  Grid.Column="2" Command="{Binding DeleteTaskCommand}" Style="{StaticResource TasksToDoAddTaskBtnStyles}" >DELETE</Button>
             </Grid>

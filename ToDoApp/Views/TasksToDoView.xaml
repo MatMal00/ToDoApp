@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ToDoApp"
-       xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DoneTasksView">
@@ -167,48 +166,8 @@
 
             <Border CornerRadius="20"   Grid.Row="1"
                     Grid.RowSpan="2">
-                <StackPanel Width="80"
-                    HorizontalAlignment="Left"
-                    Background="#1a1924"
-                  >
+                <local:Navigation/>
 
-                <Button x:Name="Home"
-                    Height="80"
-                    Background="Transparent"
-                    BorderBrush="Transparent"
-                    Margin="0,25,0,0"
-                    Click="Home_Click"
-                    >
-                    <fa:ImageAwesome Icon="Home" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                        Width="25" Height="30" Foreground="White"></fa:ImageAwesome>
-                </Button>
-                <Button x:Name="TaskToDo"
-                    Height="80"
-                    Background="Transparent"
-                    BorderBrush="Transparent"
-                    Margin="0,0,0,0">
-                    <fa:ImageAwesome Icon="Plus" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                        Width="25" Height="30" Foreground="White"></fa:ImageAwesome>
-                </Button>
-                <Button x:Name="TaskDone"
-                    Height="80"
-                    Background="Transparent"
-                    BorderBrush="Transparent"
-                    Margin="0,0,0,0">
-                    <fa:ImageAwesome Icon="Check" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                        Width="25" Height="30" Foreground="White"></fa:ImageAwesome>
-                </Button>
-
-                <Button x:Name="TaskDeleted"
-                    Height="80"
-                    Background="Transparent"
-                    BorderBrush="Transparent"
-                    Margin="0,0,0,0">
-                    <fa:ImageAwesome Icon="Trash" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                        Width="25" Height="30" Foreground="White"></fa:ImageAwesome>
-                </Button>
-
-            </StackPanel>
             </Border>
 
             <Grid Grid.Row="3" Grid.Column="1" >
