@@ -32,5 +32,11 @@ namespace ToDoApp
             addTaskModalView.ShowDialog();  
         }
 
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+
+            NavigationService navService = NavigationService.GetNavigationService(this);
+            navService.Navigate(new System.Uri("/Views/MenuView.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }
