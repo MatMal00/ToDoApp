@@ -177,6 +177,7 @@
                     Background="Transparent"
                     BorderBrush="Transparent"
                     Margin="0,25,0,0"
+                    Click="Home_Click"
                     >
                     <fa:ImageAwesome Icon="Home" VerticalAlignment="Center" HorizontalAlignment="Center" 
                         Width="25" Height="30" Foreground="White"></fa:ImageAwesome>

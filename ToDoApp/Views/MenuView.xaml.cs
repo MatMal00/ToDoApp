@@ -32,6 +32,5 @@ namespace ToDoApp
             if(ClickedButton != null)   
                 NavigationService.Navigate(ClickedButton.NavUri);
         }
-  
     }
 }
