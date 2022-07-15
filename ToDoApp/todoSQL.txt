@@ -51,7 +51,10 @@ ALTER TABLE [dbo].[Deleted]
 	ON DELETE CASCADE
 	ON UPDATE CASCADE;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1044cd3d436e584648bcb1d5db23db242306df32
 INSERT INTO Categories (Name)
 VALUES ('Szkola')
 
@@ -62,4 +65,8 @@ INSERT INTO Categories (Name)
 VALUES ('Obowiazki domowe')
 
 INSERT INTO Categories (Name)
+<<<<<<< HEAD
 VALUES ('Zakupy')
+=======
+VALUES ('Zakupy')
+>>>>>>> 1044cd3d436e584648bcb1d5db23db242306df32
