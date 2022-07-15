@@ -65,5 +65,10 @@ namespace ToDoApp
             var selectedComboItem = sender as ComboBox;
             selectedCategoryName = selectedComboItem.SelectedItem as string;
         }
+
+        private void Button_Close(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
