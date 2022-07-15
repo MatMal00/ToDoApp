@@ -29,11 +29,11 @@
 
                 <RadioButton Grid.Column="0"  Margin="5" BorderThickness="2" BorderBrush="#000"  IsChecked="{Binding IsChecked}"/>
 
-                <TextBlock Grid.Column="1"  Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Title}"/>
-                <TextBlock Grid.Column="2"  Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Description}"/>
-                <TextBlock Grid.Column="3"  Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding CreationDate}"/>
-                <TextBlock Grid.Column="4"  Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding RemovalDate}"/>
-                <TextBlock Grid.Column="5"  Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding CategoryName}"/>
+                <TextBlock Grid.Column="1" Foreground="#000"  Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Title}" />
+                <TextBlock Grid.Column="2" Foreground="#000" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Description}"/>
+                <TextBlock Grid.Column="3" Foreground="#000" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding CreationDate}"/>
+                <TextBlock Grid.Column="4" Foreground="#000" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding RemovalDate}"/>
+                <TextBlock Grid.Column="5" Foreground="#000" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding CategoryName}"/>
             </Grid>
         </Border>
     </Grid>
