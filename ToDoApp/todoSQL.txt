@@ -50,3 +50,16 @@ ALTER TABLE [dbo].[Deleted]
 	REFERENCES [dbo].[Categories] (Id)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE;
+
+
+INSERT INTO Categories (Name)
+VALUES ('Szkola')
+
+INSERT INTO Categories (Name)
+VALUES ('Praca')
+
+INSERT INTO Categories (Name)
+VALUES ('Obowiazki domowe')
+
+INSERT INTO Categories (Name)
+VALUES ('Zakupy')
