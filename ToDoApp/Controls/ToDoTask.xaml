@@ -26,7 +26,7 @@
                 <Border Grid.Column="1" BorderBrush="#000" BorderThickness="3,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>
                 <Border Grid.Column="2" BorderBrush="#000" BorderThickness="3,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>
 
-                <RadioButton Grid.Column="0" Margin="5" BorderThickness="2" BorderBrush="#000" IsChecked="{Binding IsChecked}"/>
+                <RadioButton GroupName="ToDoTask" Grid.Column="0" Margin="5" BorderThickness="2" BorderBrush="#000" IsChecked="{Binding IsChecked}"/>
                 
                 <TextBlock Grid.Column="1" Foreground="#000" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Title}"/>
                 <TextBlock Grid.Column="2" Foreground="#000" Style="{StaticResource DefaultTaskTextBlockStyle}" Text="{Binding Description}"/>
