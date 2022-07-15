@@ -21,8 +21,7 @@
                 <ColumnDefinition Width="*"/>
 
             </Grid.ColumnDefinitions>
-            <local:BackButton Grid.Row="0"/>
-        <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="DELETED TASKS" Grid.Row="1" Grid.Column="2" Foreground="White" FontFamily="Arial Black" FontSize="40"/>
+            <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="DELETED TASKS" Grid.Row="1" Grid.Column="2" Foreground="White" FontFamily="Arial Black" FontSize="40"/>
         <ScrollViewer Grid.Row="2" Grid.Column="2">
             <ItemsControl ItemsSource="{Binding DeletedTasksList}" Margin="10">
                 <ItemsControl.ItemTemplate>

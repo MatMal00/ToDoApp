@@ -20,7 +20,6 @@
                 <ColumnDefinition Width="*"/>
 
             </Grid.ColumnDefinitions>
-            <local:BackButton Grid.Row="0"/>
             <Label FontWeight="Bold"  HorizontalAlignment="Center" Content="DONE TASKS" Grid.Row="1" Grid.Column="2" Foreground="White" FontFamily="Arial Black" FontSize="40"/>
             <ScrollViewer Grid.Row="2" Grid.Column="1">
                 <ItemsControl ItemsSource="{Binding DoneTasksList}" Margin="10">
