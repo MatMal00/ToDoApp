@@ -21,6 +21,9 @@ namespace ToDoApp
             GetDoneTasks();
         }
 
+        /// <summary>
+        /// Get all done tasks
+        /// </summary>
         public void GetDoneTasks()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
@@ -48,7 +51,9 @@ namespace ToDoApp
             }
         }
 
-
+        /// <summary>
+        /// Delete selected task
+        /// </summary>
         private void DeleteSelectedTasks()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
@@ -72,6 +77,9 @@ namespace ToDoApp
             }
         }
 
+        /// <summary>
+        /// Move task back to todo list
+        /// </summary>
         private void RestoreToDo()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))

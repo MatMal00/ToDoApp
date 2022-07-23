@@ -37,6 +37,9 @@ namespace ToDoApp
             selectedCategoryName = categoryName;    
         }
 
+        /// <summary>
+        /// Assign values to the class properties
+        /// </summary>
         private void Button_Edit_Task(object sender, RoutedEventArgs e)
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
@@ -49,6 +52,9 @@ namespace ToDoApp
             }
         }
 
+        /// <summary>
+        /// Add categories to the comboBox
+        /// </summary>
         private void ComboBox_Loaded(object sender, RoutedEventArgs e)
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))

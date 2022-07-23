@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -29,6 +28,9 @@ namespace ToDoApp
             GetTasks();
         }
 
+        /// <summary>
+        /// Get all tasks to do
+        /// </summary>
         public void GetTasks()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
@@ -55,7 +57,9 @@ namespace ToDoApp
             }
         }
 
-
+        /// <summary>
+        /// Add new task to the list
+        /// </summary>
         private void AddNewTask()
         {
             AddTaskModalView addTaskModal = new AddTaskModalView();
@@ -81,6 +85,9 @@ namespace ToDoApp
             }
         }
 
+        /// <summary>
+        /// Edit selected task
+        /// </summary>
         private void EditTask()
         {
             var getSelected = ToDoTasksList.Where(t => t.IsChecked).ToList();
@@ -112,6 +119,9 @@ namespace ToDoApp
 
         }
 
+        /// <summary>
+        /// Delete selected task (move to deleted tasks list)
+        /// </summary>
         private void DeleteSelectedTasks()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
@@ -135,6 +145,9 @@ namespace ToDoApp
             }
         }
 
+        /// <summary>
+        /// Move task to done tasks list
+        /// </summary>
         private void MarkAsDone()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))

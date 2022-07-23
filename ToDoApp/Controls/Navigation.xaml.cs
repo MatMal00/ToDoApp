@@ -25,6 +25,9 @@ namespace ToDoApp
             InitializeComponent();
         }
 
+        /// <summary>
+        ///  Redirect to home page
+        /// </summary>
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
@@ -33,18 +36,27 @@ namespace ToDoApp
             navService.Navigate(new System.Uri("/Views/MenuView.xaml", UriKind.RelativeOrAbsolute));
         }
 
+        /// <summary>
+        ///  Redirect to TasksToDo page
+        /// </summary>
         private void TaskToDo_Click(object sender, RoutedEventArgs e)
         {
             NavigationService navService = NavigationService.GetNavigationService(this);
             navService.Navigate(new System.Uri("/Views/TasksToDoView.xaml", UriKind.RelativeOrAbsolute));
         }
 
+        /// <summary>
+        ///  Redirect to TasksDone page
+        /// </summary>
         private void TaskDone_Click(object sender, RoutedEventArgs e)
         {
             NavigationService navService = NavigationService.GetNavigationService(this);
             navService.Navigate(new System.Uri("/Views/DoneTasksView.xaml", UriKind.RelativeOrAbsolute));
         }
 
+        /// <summary>
+        ///  Redirect to TaskDeleted page
+        /// </summary>
         private void TaskDeleted_Click(object sender, RoutedEventArgs e)
         {
             NavigationService navService = NavigationService.GetNavigationService(this);

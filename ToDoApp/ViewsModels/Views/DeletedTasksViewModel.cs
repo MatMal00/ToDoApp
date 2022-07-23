@@ -21,6 +21,9 @@ namespace ToDoApp
             GetDeletedTasks();
         }
 
+        /// <summary>
+        /// Get deleted tasks
+        /// </summary>
         public void GetDeletedTasks()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
@@ -48,7 +51,9 @@ namespace ToDoApp
             }
         }
 
-
+        /// <summary>
+        /// Delete permanently task 
+        /// </summary>
         private void DeletePermanentlySelectedTasks()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
@@ -63,6 +68,9 @@ namespace ToDoApp
             }
         }
 
+        /// <summary>
+        /// Move task back to todo list
+        /// </summary>
         private void RestoreToDo()
         {
             using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
