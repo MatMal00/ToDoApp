@@ -1,6 +1,9 @@
 # ToDoApp
 
-
+To nowoczesna aplikacja desktopowa, umożliwiająca użytkownikowi łatwiejsze planowanie dnia. 
+Pozwala ona na tworzenie zadań do wykonania w określonych(dodanych już) kategoriach. Użytkownik ma
+możliwość przechowywania usuniętych, jak i również zakończonych przez niego zadań. Dzięki temu, zmniejszy 
+stres związany z dynamiką dzisiejszego świata poprzez organizacje zadań, prac domowych, szkolnych, służbowych.
 
 ![image](https://user-images.githubusercontent.com/101005328/180607965-2a9095cf-a8fa-4980-bcbb-ee64d373e1fd.png)
 ![image](https://user-images.githubusercontent.com/101005328/180607977-fdc2d723-b0ab-4f85-bb6d-85ddd328b94a.png)
