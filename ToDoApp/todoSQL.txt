@@ -3,7 +3,7 @@ CREATE TABLE [dbo].[ToDo] (
 	[Title] NVARCHAR(100) NOT NULL,
 	[Description] NVARCHAR(300) NOT NULL,
 	[CategoryId] INT NOT NULL,
-	[CreationDate] Date NOT NULL,
+	[CreationDate] NVARCHAR(100) NOT NULL,
 	PRIMARY KEY ([Id])
 );
 
@@ -12,8 +12,8 @@ CREATE TABLE [dbo].[Done] (
 	[Title] NVARCHAR(100) NOT NULL,
 	[Description] NVARCHAR(300) NOT NULL,
 	[CategoryId] INT NOT NULL,
-	[CreationDate] Date NOT NULL,
-	[CompletionDate] Date NOT NULL,
+	[CreationDate] NVARCHAR(100) NOT NULL,
+	[CompletionDate] NVARCHAR(100) NOT NULL,
 	PRIMARY KEY ([Id])
 );
 
@@ -22,8 +22,8 @@ CREATE TABLE [dbo].[Deleted] (
 	[Title] NVARCHAR(100) NOT NULL,
 	[Description] NVARCHAR(300) NOT NULL,
 	[CategoryId] INT NOT NULL,
-	[CreationDate] Date NOT NULL,
-	[RemovalDate] Date NOT NULL,
+	[CreationDate] NVARCHAR(100) NOT NULL,
+	[RemovalDate] NVARCHAR(100) NOT NULL,
 	PRIMARY KEY ([Id])
 );
 

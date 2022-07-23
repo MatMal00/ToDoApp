@@ -8,6 +8,6 @@ namespace ToDoApp
 {
     public static class ConnectionString
     {
-        static public readonly string path = @"Data Source=localhost;Initial Catalog=todoApp;Integrated Security=True";
+        static public readonly string path = @"Data Source=localhost;Initial Catalog=todoAppp;Integrated Security=True";
     }
 }

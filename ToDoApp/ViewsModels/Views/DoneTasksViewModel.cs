@@ -68,7 +68,7 @@ namespace ToDoApp
                         Description = task.Description,
                         CategoryId = task.CategoryId,
                         CreationDate = task.CreationDate,
-                        RemovalDate = DateTime.Now,
+                        RemovalDate = DateTime.Now.ToString("g"),
                     });
                 }
 

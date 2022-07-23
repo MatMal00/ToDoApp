@@ -16,8 +16,8 @@ namespace ToDoApp
 
         public int CategoryId { get; set; }
 
-        public DateTime CreationDate { get; set; }
+        public string CreationDate { get; set; }
 
-        public DateTime RemovalDate { get; set; }
+        public string RemovalDate { get; set; }
     }
 }

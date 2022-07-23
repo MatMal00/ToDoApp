@@ -19,9 +19,9 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="410"/>
+                    <ColumnDefinition Width="390"/>
                     <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="85"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="1" BorderBrush="#000" BorderThickness="3,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>
                 <Border Grid.Column="2" BorderBrush="#000" BorderThickness="3,0,0,0" CornerRadius="0" Style="{StaticResource DefaultTaskBorderStyle}"/>

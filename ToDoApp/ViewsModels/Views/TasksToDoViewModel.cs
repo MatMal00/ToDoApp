@@ -72,7 +72,7 @@ namespace ToDoApp
                     Title = addTaskModal.taskTitle,
                     Description = addTaskModal.taskDescription,
                     CategoryId = addTaskModal.taskCategoryId,
-                    CreationDate = DateTime.Now,
+                    CreationDate = DateTime.Now.ToString("g"),
                 };
 
                 using (ToDoAppContext db = new ToDoAppContext(ConnectionString.path))
@@ -136,7 +136,7 @@ namespace ToDoApp
                         Description = task.Description,
                         CategoryId = task.CategoryId,
                         CreationDate = task.CreationDate,
-                        RemovalDate = DateTime.Now,
+                        RemovalDate = DateTime.Now.ToString("g"),
                     });
                 }
 
@@ -162,7 +162,7 @@ namespace ToDoApp
                         Description = task.Description,
                         CategoryId = task.CategoryId,
                         CreationDate = task.CreationDate,
-                        CompletionDate = DateTime.Now
+                        CompletionDate = DateTime.Now.ToString("g")
                     });
                 }
 
